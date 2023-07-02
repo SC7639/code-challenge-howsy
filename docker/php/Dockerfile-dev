@@ -1,0 +1,6 @@
+FROM composer:2.5.8
+
+VOLUME [ "/app/" ]
+
+# Keeps docker container running with a composer environment
+CMD [ "tail", "-f", "/dev/null" ] 

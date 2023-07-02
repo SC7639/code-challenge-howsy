@@ -1,31 +1,12 @@
 # Howsy Software Engineer Code Challenge
 
-This test allows you to demonstrate the skills that will be required as a Software Developer at Howsy. We primarily use PHP at Howsy and would prefer submissions in this format however we will accept submissions in other OOP languages (Java, Python, Ruby) *but please note, day-to-day you will probably be writing PHP*
+## Run in development
+1. Install docker for [(windows|mac|linux)](https://docs.docker.com/get-docker/)
+2. Run `docker compose up --build -d` then `docker compose exec php bash`
+3. Run `composer install` inside the docker container
+4. RUN `composer test` to run the tests
 
-Try to write elegant OOP code. It should be SOLID, DRY and have good test coverage. Just like it would for a real project! We are trying to see how you write code so please don’t use any full-service frameworks. Packages for things like DI containers are fine of course.
-
-We also want to see the infrastructure around the system - how can we run your solution and validate it works. Please include a readme detailing this. (hint: DOCKER)
-
-When you have completed the challenge please share your code in the form of a GIT repository with daniel.benzie@howsy.com.
-
-# Challenge 
-
-Howsy are building a new checkout. The checkout system allows users to pay upfront for products added to their property management agreement. The system should also allow users to take advantage of special offers. An initial offer will be “users who have agreed to a 12-month contract are entitled to a 10% discount off the basket total”
-
-The products are below:
-
-| Product Code | Name             | Price |
-|--------------|------------------|-------|
-| P001         | Photography      | 200   |
-| P002         | Floorplan        | 100   |
-| P003         | Gas Certificate  | 83.50 |
-| P004         | EICR Certificate | 51.00 |
-
-Your job is to implement the basket which should have the following interface:
-
-1. Basket can be initialised with offer(s) user is eligible for
-2. It has an add method to add a product
-3. Each individual product can only be added to the basket one time
-4. It has a total method that returns the total cost of the basket - remember to take into account any valid offers
-
-## There is no need to build any front end components. The interface and behaviours should be validated by the code and its associated automated tests.
+## Run in production
+1. Install [docker](https://docs.docker.com/desktop/install/linux-install/) on your server
+2. Run `docker compose -f docker-compose.prod.yml up --build -d` which will install composer dependencies and run tests. It will fail to build if any tests fail. 
+3. Open browser to your domain or if running locally to test it open to [http://localhost](http://localhost)

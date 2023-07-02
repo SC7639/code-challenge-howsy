@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  php:
+    build: 
+      context: ./
+      dockerfile: ./docker/php/Dockerfile
+    restart: always
+
+  nginx:
+    build: 
+      context: ./
+      dockerfile: ./docker/nginx/Dockerfile
+    ports:
+      - 80:80
+    restart: always
